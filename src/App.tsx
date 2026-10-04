@@ -1,25 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider } from 'styled-components';
+import { theme } from './styles/theme';
+import { GlobalStyle } from './styles/GlobalStyles';
+
+import { Header } from './components/Header';
+import { Hero } from './components/Hero';
+import { SubscriptionForm } from './components/SubscriptionForm';
+import { FeaturedSection } from './components/FeaturedSection';
+import { Testimonials } from './components/Testimonials';
+import { Footer } from './components/Footer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Header />
+      <main>
+        <Hero />
+        <SubscriptionForm />
+        <FeaturedSection />
+        <Testimonials />
+      </main>
+      <Footer />
+    </ThemeProvider>
   );
 }
 
